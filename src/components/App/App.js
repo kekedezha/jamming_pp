@@ -20,13 +20,11 @@ function App() {
         <h1>
           Ja<span className="highlight">mmm</span>ing
         </h1>
-        <h4>
+         <h4>
           with React & Spotify
         </h4>
-        <div className="App-playlist">
-          <SearchResults />
-          <Playlist />
-        </div>
+        <SearchResults />
+        <Playlist />
         {/* <div className="Footer">
           <p>
             Photo by <a href="https://unsplash.com/@namroud?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Namroud Gorguis</a> on <a href="https://unsplash.com/photos/photo-of-black-and-brown-cassette-tape-FZWivbri0Xk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>

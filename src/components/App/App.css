@@ -32,19 +32,43 @@ h4 {
 
 .App {
   height: 100%;
-  padding: 0 17% 0 17%;
+  padding: 0 1% 0 1%;
   background-image: url('./namroud-gorguis-FZWivbri0Xk-unsplash.jpg');
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   font-family: 'Work Sans', sans-serif;
   font-weight: 500;
   color: #fff;
+  display: grid;
+  grid-template: repeat(20, 1fr) / repeat(20, 1fr);
 }
 
-.App-playlist {
+/* .App-playlist {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+} */
+
+.SearchBar {
+  grid-area: 2 / 8 / 4 / 14;
+}
+
+.App h1 {
+  grid-area: 8 / 8 / 9 / 14;
+}
+
+.App h4 {
+  grid-area: 12 / 8 / 13 / 14;
+}
+
+.SearchResults {
+  grid-area: 5 / 2 / 20 / 6;
+  width: 100%;
+}
+
+.Playlist {
+  grid-area: 5 / 16 / 20/ 20;
   width: 100%;
 }
 
