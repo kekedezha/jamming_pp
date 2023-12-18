@@ -13,12 +13,11 @@ h1 {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 1.88rem;
-  color: #fff;
+  color: rgb(42, 10, 183);
 }
 
 h1 .highlight {
-  color: #6c41ec;
-}
+  color: rgba(203, 203, 203, 0.802);}
 
 h2 {
   font-family: 'Poppins', sans-serif;
@@ -28,7 +27,7 @@ h2 {
 h4 {
   text-align: center;
   font-size: 1.25rem;
-  color: #fff;
+  color: rgb(42, 10, 183);
 }
 
 .App {
