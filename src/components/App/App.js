@@ -5,11 +5,15 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify';
 
 
 function App() {
+  const [searchResults, setSearchResults] = useState([])
 
   const search = (itemToSearch) => {
+    Spotify.search(itemToSearch).then(response => setSearchResults(response));
+    console.log(searchResults);
 
   }
 
