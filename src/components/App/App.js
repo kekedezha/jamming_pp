@@ -24,23 +24,30 @@ function App() {
   // This should add the track from the results over to
   // the curated playlist
   const handleAdd = (trackToAdd) => {
-
+    const containsTrack = curatedPlaylist.includes(trackToAdd);
+    if (!containsTrack) {
+      setCuratedPlaylist(prev => [...prev, trackToAdd]);
+    }
+    // console.log(trackToAdd)
+    // console.log(containsTrack)
+    // console.log(curatedPlaylist);
   }
 
   // Handle onClick event when remove button is clicked
   // This should remove the track from the playlist
   const handleRemove = (trackToRemove) => {
-
+    setCuratedPlaylist(prev => prev.filter((element) => element !== trackToRemove));
   }
 
+  const handlePlaylistNameChange = (newName) => {
+    setPlaylistName(newName);
+  }
   // Handle onClick event when "add playlist" button is
   // clicked. This should call the Spotify function 
   const handlePlaylistToSpotify = () => {
 
   }
  
-
-
   return (
       <div className="App">
         <SearchBar onSearch={search} />
@@ -50,8 +57,16 @@ function App() {
          <h4>
           with React & Spotify
         </h4>
-        <SearchResults searchResults={searchResults} onAdd={handleAdd}/>
-        <Playlist />
+        <SearchResults 
+        searchResults={searchResults} 
+        onAdd={handleAdd}/>
+        <Playlist 
+        playlistTracks={curatedPlaylist} 
+        onRemove={handleRemove}
+        playlistName={playlistName}
+        onNameChange={handlePlaylistNameChange}
+        onSave={handlePlaylistToSpotify}
+        />
         {/* <div className="Footer">
           <p>
             Photo by <a href="https://unsplash.com/@namroud?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Namroud Gorguis</a> on <a href="https://unsplash.com/photos/photo-of-black-and-brown-cassette-tape-FZWivbri0Xk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>

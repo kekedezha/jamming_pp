@@ -1,4 +1,5 @@
 import React from 'react';
+import './Track.css';
 
 export default function Track(props) {
 
@@ -6,7 +7,7 @@ export default function Track(props) {
         props.onAdd(props.track);
     }
 
-    const removeTrack = () => {
+    const removeTrack = (e) => {
         props.onRemove(props.track);
     }
 
@@ -33,6 +34,7 @@ export default function Track(props) {
                 <p>
                 {props.track.artist} | {props.track.album}
                 </p>
+                {props.track.explicit && (<p>Explicit</p>)}
             </div>
             {toAddOrNotToAdd()}
         </div>

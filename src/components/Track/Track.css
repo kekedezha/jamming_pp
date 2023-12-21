@@ -1,7 +1,8 @@
 .Track {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(256, 256, 256, 0.8);
+    border-bottom: 2px solid whitesmoke;
+    padding: 1rem 0;
   }
   
   .Track-action {
@@ -23,7 +24,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 72px;
+    height: auto;
   }
   
   .Track-information h3 {
@@ -34,4 +35,5 @@
     font-size: .83rem;
     font-weight: 300;
     color: rgba(256, 256, 256, 0.8);
+    margin-bottom: .22rem;
   }
