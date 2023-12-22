@@ -4,16 +4,35 @@ import './Playlist.css'
 
 export default function Playlist(props) {
 
+    const handleInput = e => {
+        props.onNameChange(e.target.value);
+    }
+
+    const handleSaveButton = () => {
+        props.onSave(props.playlistName);
+    }
+
     return (
         <div className="Playlist">
+            <input 
+                type="text"
+                placeholder="Enter a Playlist Title"
+                onChange={handleInput}
+            />
             <TrackList 
-            tracks={props.playlistTracks} 
-            onRemove={props.onRemove}
-            isRemoval={true}/>
+                tracks={props.playlistTracks} 
+                onRemove={props.onRemove}
+                isRemoval={true}
+            />
+            <button 
+                className='Playlist-save'
+                onClick={handleSaveButton}   
+            >
+                Save To Spotify!
+            </button>
         </div>
     );
 };
 
 // playlistName={playlistName}
-// onNameChange={handlePlaylistNameChange}
 // onSave={handlePlaylistToSpotify}

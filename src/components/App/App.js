@@ -11,13 +11,11 @@ import Spotify from '../../util/Spotify';
 function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [curatedPlaylist, setCuratedPlaylist] = useState([]);
-  const [playlistName, setPlaylistName] = useState("Set Name Of Your New Playlist");
+  const [playlistName, setPlaylistName] = useState("");
 
   // Handle onClick event when Search button is pressed
   const search = (itemToSearch) => {
     Spotify.search(itemToSearch).then(response => setSearchResults(response));
-    console.log(searchResults);
-
   }
 
   // Handle onClick event when addition button is clicked
@@ -28,9 +26,6 @@ function App() {
     if (!containsTrack) {
       setCuratedPlaylist(prev => [...prev, trackToAdd]);
     }
-    // console.log(trackToAdd)
-    // console.log(containsTrack)
-    // console.log(curatedPlaylist);
   }
 
   // Handle onClick event when remove button is clicked
@@ -44,8 +39,12 @@ function App() {
   }
   // Handle onClick event when "add playlist" button is
   // clicked. This should call the Spotify function 
-  const handlePlaylistToSpotify = () => {
+  const handlePlaylistToSpotify = (playlistNameToSave) => {
+    const urisToSendOver = curatedPlaylist.map(element => {
+      return element.uri;
+    })
 
+    Spotify.saveToSpotify(playlistNameToSave, urisToSendOver);
   }
  
   return (

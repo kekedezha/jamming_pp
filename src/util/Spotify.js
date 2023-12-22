@@ -55,6 +55,7 @@ const Spotify = {
         }
         }).then(response => {
             // from the HTTP GET Request, return the response converted to json
+            console.log(response);
             return response.json(); 
         }).then(jsonResponse => {
             // If jsonResponse object does not have a 'tracks' key then return empty
@@ -62,7 +63,6 @@ const Spotify = {
             if(!jsonResponse.tracks) {
                 return [];
             }
-            console.log(jsonResponse)
             // Return a mapped version of the jsonResponse object 
             return jsonResponse.tracks.items.map(track => ({
                 name: track.name,
@@ -73,6 +73,60 @@ const Spotify = {
                 explicit: track.explicit
             }))
         });
+    },
+
+    async saveToSpotify(playlistNameToSave, playlistTracksToSave) {
+        // Get access token from getAccessToken function to be able to save to spotify.
+        // To be able to save to Spotify, user must have an Spotify account and auth-
+        // orize linking their account.
+        const accessToken = Spotify.getAccessToken();
+
+        try {
+        // Using the accessToken get user ID...Don't know if this step is necessary 
+        const userIDResponse = await fetch('https://api.spotify.com/v1/me', {
+            headers: {
+            Authorization: 'Bearer ' + accessToken
+            }
+        });
+        const data = await userIDResponse.json();
+        const userID = data.id;
+
+        // Once user ID is obtained, create the Playlist!
+        const playlistCreationResponse = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${accessToken}`
+            },
+            body: JSON.stringify({
+                name: playlistNameToSave,
+                description: 'Playlist curated using Jamming Web App created by Christian Dezha.',
+                public: true,
+            }),
+        })
+
+        const playlistData = await playlistCreationResponse.json();
+        const playlistID = playlistData.id;
+
+        const trackAdditionResponse = await fetch(`https://api.spotify.com/v1/playlists/${playlistID}/tracks`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${accessToken}`
+            }, 
+            body: JSON.stringify({
+                uris: playlistTracksToSave
+            }),
+        })
+        if (trackAdditionResponse.ok){
+            alert(`Go to your Spotify account and start listening! You successfully created ${playlistNameToSave}!!`)
+
+        }
+
+    } catch(error) {
+        alert('Sorry, playlist was not able to be create. Error: ' + error);
+    }
+        // If successful!
     }
 };
 export default Spotify;
