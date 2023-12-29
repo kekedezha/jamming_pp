@@ -12,6 +12,7 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [curatedPlaylist, setCuratedPlaylist] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
+  const audio = new Audio();
 
   // Handle onClick event when Search button is pressed
   const search = (itemToSearch) => {
@@ -32,6 +33,16 @@ function App() {
   // This should remove the track from the playlist
   const handleRemove = (trackToRemove) => {
     setCuratedPlaylist(prev => prev.filter((element) => element !== trackToRemove));
+  }
+
+  const handlePlay = (previewUrl) => {
+    audio.pause();
+    audio.src = previewUrl;
+    audio.play();
+  }
+
+  const handleStop = () => {
+    audio.pause();
   }
 
   const handlePlaylistNameChange = (newName) => {
@@ -58,13 +69,18 @@ function App() {
         </h4>
         <SearchResults 
         searchResults={searchResults} 
-        onAdd={handleAdd}/>
+        onPlay={handlePlay}
+        onPause={handleStop}
+        onAdd={handleAdd}
+        />
         <Playlist 
         playlistTracks={curatedPlaylist} 
         onRemove={handleRemove}
         playlistName={playlistName}
         onNameChange={handlePlaylistNameChange}
         onSave={handlePlaylistToSpotify}
+        onPlay={handlePlay}
+        onPause={handleStop}
         />
         {/* <div className="Footer">
           <p>

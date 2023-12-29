@@ -11,18 +11,38 @@ export default function Track(props) {
         props.onRemove(props.track);
     }
 
+    const playTrack = (e) => {
+        props.onPlay(props.track.preview);
+    }
+
     const toAddOrNotToAdd = () => {
         if (props.isRemoval) {
             return (
-                <button onClick={removeTrack} className='Track-action'>
-                    -
-                </button>
+                <>
+                    {props.track.preview && (<button onClick={playTrack} className='Track-action'>
+                        &#9205;
+                    </button>)}
+                    {props.track.preview && (<button onClick={props.onPause} className='Track-action'>
+                        &#9209;
+                    </button>)}
+                    <button onClick={removeTrack} className='Track-action'>
+                        -
+                    </button>
+                </>
             );
         } else {
             return (
-                <button onClick={addTrack} className='Track-action'>
-                    +
-                </button>
+                <>
+                    {props.track.preview && (<button onClick={playTrack} className='Track-action'>
+                        &#9205;
+                    </button>)}
+                    {props.track.preview && (<button onClick={props.onPause} className='Track-action'>
+                        &#9209;
+                    </button>)}
+                    <button onClick={addTrack} className='Track-action'>
+                        +
+                    </button>
+                </>
             );
         }
     }

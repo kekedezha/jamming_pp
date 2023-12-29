@@ -23,6 +23,8 @@ export default function Playlist(props) {
                 tracks={props.playlistTracks} 
                 onRemove={props.onRemove}
                 isRemoval={true}
+                onPlay={props.onPlay}
+                onPause={props.onPause}
             />
             <button 
                 className='Playlist-save'
@@ -34,5 +36,3 @@ export default function Playlist(props) {
     );
 };
 
-// playlistName={playlistName}
-// onSave={handlePlaylistToSpotify}

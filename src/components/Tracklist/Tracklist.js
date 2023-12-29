@@ -12,6 +12,8 @@ export default function Tracklist(props) {
                     isRemoval={props.isRemoval}
                     onAdd={props.onAdd}
                     onRemove={props.onRemove}
+                    onPlay={props.onPlay}
+                    onPause={props.onPause}
                     track={track}
                     key={track.id}
                     />

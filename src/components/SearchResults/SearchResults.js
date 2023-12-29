@@ -8,7 +8,12 @@ export default function SearchResults(props) {
     return (
         <div className='SearchResults'>
             <h1>Search Results</h1>
-            <TrackList tracks={props.searchResults} onAdd={props.onAdd}/>
+            <TrackList 
+                tracks={props.searchResults} 
+                onAdd={props.onAdd} 
+                onPlay={props.onPlay}
+                onPause={props.onPause}    
+            />
         </div>
     );
 };
