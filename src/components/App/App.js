@@ -27,6 +27,7 @@ function App() {
     if (!containsTrack) {
       setCuratedPlaylist(prev => [...prev, trackToAdd]);
     }
+    setSearchResults(prev => prev.filter((element) => element !== trackToAdd));
   }
 
   // Handle onClick event when remove button is clicked
