@@ -2,6 +2,7 @@
 
 Another web-app that uses Spotify's API to link to a user account, search songs, make a new playlist and upload the playlist to the linked user account. 
 
+<img width="1440" alt="Jamming Preview" src="https://github.com/kekedezha/jamming_pp/assets/105559393/6924e7f4-3337-4ac7-8dcc-10a417389181">
 
 ## 💻 Motivation 
 
