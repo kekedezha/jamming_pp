@@ -8,11 +8,11 @@ Another web-app that uses Spotify's API to link to a user account, search songs,
 This web-app is not meant to replace any other Spotify web-app, rather this web app was done to further enhance my understand of interacting with APIs by using Spotify's API to link a user to their Spotify account, search songs, make a playlist in the web-app and then upload the newly made playlist to the linked account. 
 
 ## ⚡️ Technologies
-    - `React.js`
-    - `Javascript`
-    - `HTML`
-    - `CSS`
-    - Spotify API Integration
+- `React.js`
+- `Javascript`
+- `HTML`
+- `CSS`
+- Spotify API Integration
   
 ## 🛠️ Improvements 
 
