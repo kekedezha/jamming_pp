@@ -1,12 +1,12 @@
 # Jamming 🎧 w/Spotify
 
-Another web-app that uses Spotify's API to link to a user account, search songs, make a new playlist and upload the playlist to the linked user account. 
+Another web-app that uses Spotify's API to link to a user account, search songs, preview songs, make a new playlist and upload the playlist to the linked user account. 
 
 <img width="1440" alt="Jamming Preview" src="https://github.com/kekedezha/jamming_pp/assets/105559393/6924e7f4-3337-4ac7-8dcc-10a417389181">
 
 ## 💻 Motivation 
 
-This web-app is not meant to replace any other Spotify web-app, rather this web app was done to further enhance my understand of interacting with APIs by using Spotify's API to link a user to their Spotify account, search songs, make a playlist in the web-app and then upload the newly made playlist to the linked account. 
+This web-app is not meant to replace any other Spotify web-app, rather this web app was done to further enhance my understand of interacting with APIs by using Spotify's API to link a user to their Spotify account, search songs, preview songs, make a playlist in the web-app and then upload the newly made playlist to the linked account. 
 
 ## ⚡️ Technologies
 - `React.js`
