@@ -17,7 +17,8 @@ This web-app is not meant to replace any other Spotify web-app, rather this web 
   
 ## 🛠️ Improvements 
 
-Use a different type of user authentication for user's to sign in via Authorization code with PKCE extension. The authorization code flow with PKCE is the recommended authorization flow for mobile apps, single-page web apps, or any type of application where the client secret can't be safely stored. 
+Use a different type of OAuth2.0 Grant Type for user's to sign in via Authorization code with PKCE extension. The authorization code flow with PKCE is the recommended authorization flow for mobile apps, single-page web apps, or any type of application where the client secret can't be safely stored. 
+Currently app is being using the Implicit Grant which is deprecated and is not super safe for authenticating users to their account. 
 
 ## 🚦 Running the Project
 
